@@ -1,0 +1,350 @@
+/* Design Tokens from Figma */
+:root {
+  /* Spacing */
+  --spacing-100: 0.5rem;
+  --spacing-150: 0.75rem;
+  --spacing-200: 1rem;
+  --spacing-300: 1.5rem;
+  --spacing-400: 2rem;
+  --spacing-500: 2.5rem;
+  --spacing-1600: 8rem;
+
+  /* Colors */
+  --grey-900: #2a4144;
+  --grey-500: #86a2a5;
+  --white: #ffffff;
+  --green-600: #0c7d69;
+  --green-200: #e0f1e8;
+  --red: #d73c3c;
+
+  /* Font Sizes */
+  --font-size-heading: 2rem;
+  --font-size-body-md: 1.125rem;
+  --font-size-body-sm: 1rem;
+}
+
+/* Resets */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--green-200);
+}
+
+body {
+  font-family: system-ui;
+  margin: 0;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+.btn-reset {
+  all: unset;
+  outline: revert;
+  box-sizing: border-box;
+}
+
+/* Typography Styles */
+.heading {
+  font-family: 'Karla', sans-serif;
+  font-size: var(--font-size-heading);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.0625rem;
+  color: var(--grey-900);
+}
+
+.body-md-bold {
+  font-family: 'Karla', sans-serif;
+  font-size: var(--font-size-body-md);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0rem;
+}
+
+.body-md {
+  font-family: 'Karla', sans-serif;
+  font-size: var(--font-size-body-md);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0rem;
+  color: var(--grey-900);
+}
+
+.body-sm {
+  font-family: 'Karla', sans-serif;
+  font-size: var(--font-size-body-sm);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0rem;
+  color: var(--grey-900);
+}
+
+.container {
+  padding: var(--spacing-400) var(--spacing-200);
+  max-width: 736px;
+  margin-inline: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-400);
+  padding: clamp(
+    var(--spacing-300),
+    calc(1.5rem + 2.03vw - 0.96rem),
+    var(--spacing-500)
+  );
+  background-color: var(--white);
+  border-radius: var(--spacing-200);
+}
+
+.card__header {
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+}
+
+.form__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-300);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  /* gap: var(--spacing-100); */
+}
+
+.form__input--text {
+  padding: var(--spacing-150) var(--spacing-300);
+  border-radius: 8px;
+  border: 1px solid var(--grey-500);
+  background: var(--white);
+}
+
+.form__input--text:hover {
+  cursor: pointer;
+  border-color: var(--green-600);
+}
+
+.form__input--text:focus,
+.form__input--text:active {
+  outline: 2px solid var(--green-600);
+}
+
+.form__query > legend {
+  display: flex;
+}
+
+legend {
+  margin-bottom: var(--spacing-100);
+}
+
+.form__query {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+  margin-top: var(--spacing-200);
+}
+
+.radio__label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-150);
+  padding: var(--spacing-150) var(--spacing-300);
+  border-radius: 8px;
+  border: 1px solid var(--grey-500);
+  background: var(--white);
+  cursor: pointer;
+}
+
+.radio__label:has(.radio__button:focus) {
+  background-color: var(--green-200);
+}
+
+.radio__label:has(.radio__button:checked) {
+  background-color: var(--green-200);
+}
+
+.radio__button {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  padding: 2.25px;
+  border: 2px solid var(--grey-500);
+  border-radius: 50%;
+  background: var(--white);
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+}
+
+.radio__button:checked {
+  background: var(--green-200);
+}
+
+.radio__button:checked::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: var(--green-600);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form__input-message {
+  height: 240px;
+  padding: var(--spacing-150) var(--spacing-300);
+  border: 1px solid var(--color-grey-500, #86a2a5);
+  background: var(--white);
+  border-radius: 8px;
+}
+
+.form__input-message:hover {
+  cursor: pointer;
+  border-color: var(--green-600);
+}
+
+.form__input-message:focus,
+.form__input-message:active {
+  outline: 2px solid var(--green-600);
+}
+
+.form__consent {
+  display: flex;
+  gap: var(--spacing-200);
+  padding-right: var(--spacing-200);
+}
+
+.form__required {
+  margin-left: var(--spacing-100);
+}
+
+.form__consent-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.form__consent-custom {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid var(--green-600);
+  border-radius: 4px;
+  background: var(--white);
+  vertical-align: middle;
+  margin-right: 0.5em;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+  cursor: pointer;
+}
+
+.form__consent-checkbox:focus + .form__consent-custom {
+  outline: 2px solid var(--green-600);
+}
+
+.form__consent-checkbox:checked + .form__consent-custom {
+  border-color: var(--green-600);
+  background-image: url('/public/icon-checkbox-check.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form__consent-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.form__submit-button {
+  border-radius: 8px;
+  background: var(--green-600);
+  padding: var(--spacing-200) var(--spacing-500);
+  text-align: center;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.form__submit-button:hover {
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
+    var(--color-green-600, #0c7d69);
+}
+
+.form__submit-button:focus {
+  outline: 2px solid var(--green-600);
+}
+
+.form-error {
+  color: var(--red);
+  min-height: 1.2em;
+  display: block;
+  visibility: hidden;
+  margin-top: 4px;
+}
+
+.form-error.visible {
+  visibility: visible;
+}
+
+.toaster {
+  background-color: var(--grey-900);
+  color: var(--white);
+  border-radius: 8px;
+}
+
+.toaster__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+  margin: var(--spacing-300);
+}
+
+.toaster__container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-100);
+}
+
+.toaster__text {
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .form__container {
+    gap: var(--spacing-200);
+  }
+
+  .card {
+    padding: var(--spacing-500);
+  }
+}
