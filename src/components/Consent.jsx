@@ -15,6 +15,7 @@ export default function Consent({ consent, onChange, onBlur, error }) {
             checked={consent}
             onChange={onChange}
             onBlur={onBlur}
+            required
           />
           <span className="form__consent-custom"></span>I consent to being
           contacted by the team

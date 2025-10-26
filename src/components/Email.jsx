@@ -17,6 +17,7 @@ export default function Email({ email, onChange, onBlur, error }) {
         onChange={onChange}
         onBlur={onBlur}
         autoComplete="email"
+        required
       />
       <span className={`body-sm form-error${error ? ' visible' : ''}`}>
         {error || '\u00A0'}
