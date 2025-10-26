@@ -10,7 +10,7 @@ export default function QueryType({ queryType, onChange, onBlur, error }) {
         Query Type<span className="form__required">*</span>
       </legend>
       <div className="form__container">
-        <label className="radio__label body-m">
+        <label htmlFor={generalId} className="radio__label body-m">
           <input
             id={generalId}
             className="radio__button"
@@ -24,7 +24,7 @@ export default function QueryType({ queryType, onChange, onBlur, error }) {
           />
           General Enquiry
         </label>
-        <label className="radio__label body-m">
+        <label htmlFor={supportId} className="radio__label body-m">
           <input
             id={supportId}
             className="radio__button"
