@@ -78,8 +78,6 @@ export default function Card() {
 
     setErrors(newErrors);
 
-    console.log(newErrors);
-
     if (Object.keys(newErrors).length === 0) {
       //Submit form
       console.log('Form submitted', form);

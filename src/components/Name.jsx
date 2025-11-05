@@ -11,8 +11,12 @@ export default function Name({
   const firstId = useId();
   const lastId = useId();
 
+  const firstErrorId = `${firstId}-error`;
+  const lastErrorId = `${lastId}-error`;
+
   return (
-    <>
+    <fieldset className="form__fieldset">
+      <legend className="form__legend sr-only">Personal Infomation</legend>
       <div className="form__container">
         <div className="form-group">
           <label className="form__label body-s" htmlFor={firstId}>
@@ -28,9 +32,14 @@ export default function Name({
             type="text"
             autoComplete="given-name"
             required
+            aria-invalid={firstNameError ? 'true' : 'false'}
+            aria-describedby={firstNameError ? firstErrorId : undefined}
           />
           <span
-            className={`body-sm form-error${firstNameError ? ' visible' : ''}`}>
+            id={firstErrorId}
+            className={`body-sm form-error${firstNameError ? ' visible' : ''}`}
+            role={firstNameError ? 'alert' : undefined}
+            aria-live="polite">
             {firstNameError || '\u00A0'}
           </span>
         </div>
@@ -51,11 +60,14 @@ export default function Name({
             required
           />
           <span
-            className={`body-sm form-error${lastNameError ? ' visible' : ''}`}>
+            id={lastErrorId}
+            className={`body-sm form-error${lastNameError ? ' visible' : ''}`}
+            role={lastNameError ? 'alert' : undefined}
+            aria-live="polite">
             {lastNameError || '\u00A0'}
           </span>
         </div>
       </div>
-    </>
+    </fieldset>
   );
 }

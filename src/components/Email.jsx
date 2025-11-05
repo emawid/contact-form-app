@@ -2,6 +2,7 @@ import { useId } from 'react';
 
 export default function Email({ email, onChange, onBlur, error }) {
   const emailId = useId();
+  const errorId = `${emailId}-error`;
 
   return (
     <div className="form-group">
@@ -18,8 +19,14 @@ export default function Email({ email, onChange, onBlur, error }) {
         onBlur={onBlur}
         autoComplete="email"
         required
+        aria-invalid={error ? 'true' : 'false'}
+        aria-describedby={error ? errorId : undefined}
       />
-      <span className={`body-sm form-error${error ? ' visible' : ''}`}>
+      <span
+        id={errorId}
+        className={`body-sm form-error${error ? ' visible' : ''}`}
+        role={error ? 'alert' : undefined}
+        aria-live="polite">
         {error || '\u00A0'}
       </span>
     </div>
